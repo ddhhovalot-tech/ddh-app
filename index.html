@@ -1272,7 +1272,7 @@ function GS_URL() { return LS.get('ddh_gs_url','') || ''; }
 const DB = {
   set(k, v) {
     const url = GS_URL(); if (!url) return;
-    fetch(url, { method:'POST', body: JSON.stringify({sheet:k, data:JSON.stringify(v)}) }).catch(()=>{});
+    fetch(url, { method:'POST', mode:'no-cors', body: JSON.stringify({sheet:k, data:JSON.stringify(v)}) }).catch(()=>{});
   },
   async get(k) {
     const url = GS_URL(); if (!url) return null;
